@@ -1,2 +1,3 @@
-SELECT ad.category_name FROM adverts ad, costs co
-WHERE ad.advert_id = co.advert_id AND co.cost >= 500;
+SELECT category_name FROM adverts INNER JOIN costs
+ON adverts.advert_id = costs.advert_id
+GROUP BY category_name HAVING avg(cost) >= 500;
